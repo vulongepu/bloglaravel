@@ -23,6 +23,13 @@
 	                 	<td>
 	                 		{{ $category->name }}
 	                 	</td>
+	                 	<td><a href="{{ route('categories.edit', ['id' => $category->id ])}}" class="btn btn-info btn-xs">
+	                 		<span><span class="glyphicon glyphicon-pencil"></span></span>
+	                 	</a></td>
+	                 	<td><a href="{{ route('categories.del', ['id' => $category->id ])}}" class="btn btn-danger btn-xs">
+	                 		x
+	                 	</a></td>
+
 	                 </tr>
 	    		@endforeach
 	    	</tbody>

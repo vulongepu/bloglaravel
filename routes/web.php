@@ -46,6 +46,20 @@ Route::get('/home', [
        'uses' => 'CategoriesController@index',
        'as' => 'categories'
     ]);
+
+  Route::get('/categories/edit/{id}',[
+       'uses' => 'CategoriesController@edit',
+       'as' => 'categories.edit'
+    ]);
+  Route::get('/categories/del/{id}',[
+       'uses' => 'CategoriesController@destroy',
+       'as' => 'categories.del'
+    ]);
+
+  Route::post('/categories/update/{id}',[
+       'uses' => 'CategoriesController@update',
+       'as' => 'category.update'
+    ]);
 });
 
 
