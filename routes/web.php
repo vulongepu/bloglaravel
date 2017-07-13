@@ -19,7 +19,7 @@ Auth::routes();
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
-  
+
 Route::get('/home', [
      'uses' => 'HomeController@index',
      'as' => 'home'
@@ -34,6 +34,14 @@ Route::get('/home', [
 	      'uses' => 'PostsController@store',
 	      'as' => 'post.store'
 		]);
+  Route::get('/category/create',[
+       'uses' => 'CategoriesController@create',
+       'as' => 'category.create'
+    ]);
+  Route::post('/category/store',[
+       'uses' => 'CategoriesController@store',
+       'as' => 'category.store'
+    ]);
 });
 
 
