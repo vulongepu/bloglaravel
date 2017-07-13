@@ -42,6 +42,10 @@ Route::get('/home', [
        'uses' => 'CategoriesController@store',
        'as' => 'category.store'
     ]);
+  Route::get('/categories',[
+       'uses' => 'CategoriesController@index',
+       'as' => 'categories'
+    ]);
 });
 
 
