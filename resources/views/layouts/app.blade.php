@@ -74,7 +74,11 @@
                       <div class="col-lg-4">
                        <ul class="list-group">
                             <li class="list-group-item">
+<<<<<<< HEAD
                                <a href="/admin/home">Home</a>
+=======
+                               <a href="{{ route('home') }}">Home</a>
+>>>>>>> 27e659254f3d06fbbb03a1401be77d059be7e570
                            </li>
                           
                           <li class="list-group-item">

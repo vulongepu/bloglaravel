@@ -20,10 +20,17 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
+<<<<<<< HEAD
 Route::get('/home', [
      'uses' => 'HomeController@index',
      'as' => 'home'
   ]);
+=======
+    Route::get('/home',[
+    	   'uses' => 'HomeController@index',
+           'as' => 'home'
+    	]);
+>>>>>>> 27e659254f3d06fbbb03a1401be77d059be7e570
 
 	Route::get('/post/create', [
       'uses' => 'PostsController@create',
