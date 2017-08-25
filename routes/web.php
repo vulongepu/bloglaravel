@@ -20,17 +20,11 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
-<<<<<<< HEAD
-Route::get('/home', [
-     'uses' => 'HomeController@index',
-     'as' => 'home'
-  ]);
-=======
+
     Route::get('/home',[
     	   'uses' => 'HomeController@index',
            'as' => 'home'
     	]);
->>>>>>> 27e659254f3d06fbbb03a1401be77d059be7e570
 
 	Route::get('/post/create', [
       'uses' => 'PostsController@create',
@@ -41,6 +35,41 @@ Route::get('/home', [
 	      'uses' => 'PostsController@store',
 	      'as' => 'post.store'
 		]);
+
+  Route::get('/post', [
+        'uses' => 'PostsController@index',
+        'as' => 'posts'
+    ]);
+ 
+  Route::get('/post/trashed', [
+        'uses' => 'PostsController@trashed',
+        'as' => 'post.trashed'
+    ]);
+
+  Route::get('/post/delete/{id}', [
+        'uses' => 'PostsController@destroy',
+        'as' => 'posts.delete'
+    ]);
+
+Route::get('/post/kill/{id}', [
+        'uses' => 'PostsController@kill',
+        'as' => 'posts.kill'
+    ]);
+Route::get('/post/restore/{id}', [
+        'uses' => 'PostsController@restore',
+        'as' => 'posts.restore'
+    ]);
+
+Route::get('/post/edit/{id}', [
+        'uses' => 'PostsController@edit',
+        'as' => 'posts.edit'
+    ]);
+
+Route::post('/post/update/{id}', [
+        'uses' => 'PostsController@update',
+        'as' => 'post.update'
+    ]);
+
   Route::get('/category/create',[
        'uses' => 'CategoriesController@create',
        'as' => 'category.create'
@@ -67,6 +96,67 @@ Route::get('/home', [
        'uses' => 'CategoriesController@update',
        'as' => 'category.update'
     ]);
+
+  Route::get('/tag',[
+       'uses' => 'TagsController@index',
+       'as' => 'tag'
+    ]);
+
+  Route::get('/tag/create',[
+       'uses' => 'TagsController@create',
+       'as' => 'tag.create'
+    ]);
+
+  Route::post('/tag/store',[
+       'uses' => 'TagsController@store',
+       'as' => 'tag.store'
+    ]);
+
+   Route::get('/tag/edit/{id}',[
+       'uses' => 'TagsController@edit',
+       'as' => 'tag.edit'
+    ]);
+
+   Route::get('/tag/del/{id}',[
+       'uses' => 'TagsController@del',
+       'as' => 'tag.del'
+    ]);
+   Route::post('/tag/update/{id}',[
+       'uses' => 'TagsController@update',
+       'as' => 'tag.update'
+    ]);
+
+   Route::get('/user',[
+       'uses' => 'UsersController@index',
+       'as' => 'user'
+    ]);
+   Route::get('/user/create',[
+       'uses' => 'UsersController@create',
+       'as' => 'user.create'
+    ]);
+   Route::post('/user/store',[
+       'uses' => 'UsersController@store',
+       'as' => 'user.store'
+    ]);
+
+   Route::get('/user/profile',[
+       'uses' => 'UsersController@profile',
+       'as' => 'user.profile'
+    ])->middleware('admin');
+    Route::get('/user/destroy/{id}',[
+       'uses' => 'UsersController@destroy',
+       'as' => 'user.destroy'
+    ]);
+    Route::get('/user/edit/{id}',[
+       'uses' => 'UsersController@edit',
+       'as' => 'user.edit'
+    ]);
+
+
+ // Route::get('/test',function(){
+ //    return App\User::find(11)->profile;
+ // });
+
 });
 
 

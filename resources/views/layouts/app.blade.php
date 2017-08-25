@@ -13,9 +13,10 @@
     <!-- Styles -->
     <!-- Latest compiled and minified CSS -->
 
-
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+     @yield('style')
 </head>
 <body>
     <div id="app">
@@ -74,15 +75,28 @@
                       <div class="col-lg-4">
                        <ul class="list-group">
                             <li class="list-group-item">
-<<<<<<< HEAD
                                <a href="/admin/home">Home</a>
-=======
                                <a href="{{ route('home') }}">Home</a>
->>>>>>> 27e659254f3d06fbbb03a1401be77d059be7e570
                            </li>
                           
                           <li class="list-group-item">
                                <a href="{{ route('categories') }}"> Category</a>
+                           </li>
+
+                            <li class="list-group-item">
+                               <a href="{{ route('posts') }}"> All Posts</a>
+                           </li>
+
+                           <li class="list-group-item">
+                               <a href="{{ route('user.create') }}"> Create User</a>
+                           </li>
+
+                           <li class="list-group-item">
+                               <a href="{{ route('user') }}"> All User</a>
+                           </li>
+
+                           <li class="list-group-item">
+                               <a href="{{ route('user.profile') }}"> Profile User</a>
                            </li>
 
                            <li class="list-group-item">
@@ -90,8 +104,29 @@
                            </li>
 
                            <li class="list-group-item">
+                               <a href="{{ route('post.trashed') }}">Trash posts</a>
+                           </li>
+
+                           <li class="list-group-item">
                                <a href="{{ route('category.create') }}">Create new category</a>
                            </li>
+
+                           <li class="list-group-item">
+                               <a href="{{ route('category.create') }}">Create new category</a>
+                           </li>
+
+                           <li class="list-group-item">
+                               <a href="{{ route('tag.create') }}">Create new tag</a>
+                           </li>
+
+                           <li class="list-group-item">
+                               <a href="{{ route('tag') }}">All Tag</a>
+                           </li>
+
+                           <li class="list-group-item">
+                               <a href="{{ route('tag.create') }}">Create new category</a>
+                           </li>
+
 
                        </ul>
                      </div>
@@ -115,6 +150,11 @@
          toastr.success("{{ Session::get('success') }}")   
       @endif
 
+       @if(Session::has('info'))
+         toastr.success("{{ Session::get('info') }}")   
+      @endif
+
     </script>
+     @yield('script')
 </body>
 </html>
